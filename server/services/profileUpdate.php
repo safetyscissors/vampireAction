@@ -32,7 +32,7 @@ if($SERVERDEBUG){
 }
 
 //setup for query
-$stmt = updateProfile($DB, $inputs['profileId'], $inputs['description'], $inputs['age']);
+$stmt = updateProfile($DB, $USER->id, $inputs['description'], $inputs['age']);
 if(!$stmt) return; // createNewList already send error.
 if(!$stmt->execute()) return errorHandler("failed to create this list $stmt->errno: $stmt->error");
 
