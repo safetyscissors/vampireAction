@@ -1,0 +1,19 @@
+
+auth
+	post 	auth	logs user in.
+	get 	auth	checks if loggedIn. 
+
+	post 	profile	creates new user/login
+	get	profile	
+	put 	profile	updates info
+
+	post	image	adds new profile image
+	put	image	replaces profile image
+	delete	image	removes profile image
+
+	post	action	creates new action
+
+	get	matchList gets all matches by profile
+	
+	get	unMatched gets next unmatched user
+	

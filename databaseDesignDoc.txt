@@ -1,0 +1,18 @@
+Profile
+	profile id
+	pic url
+	name
+	passwordHash
+	description
+	age
+	lastlogin
+
+Action
+	sourceId
+	targetId
+	action //either 1=like 0=dislike
+
+Matches	//i know its redundant but it saves on queries
+	profileId1
+	profileId2
+	timestamp
