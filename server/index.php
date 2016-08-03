@@ -60,6 +60,7 @@
       case "get:auth":      return "$serviceDir/authCheck.php";
       case "post:auth":     return "$serviceDir/authLogin.php";
 
+      case "get:profilelist":  return "$serviceDir/profileList.php";
       case "get:profile":   return "$serviceDir/profileGet.php";
       case "post:profile":  return "$serviceDir/profileCreate.php";
       case "put:profile":   return "$serviceDir/profileUpdate.php";
@@ -69,8 +70,6 @@
       case "post:action":   return "$serviceDir/actionCreate.php";
 
       case "get:matchList": return "$serviceDir/matchList.php";
-
-      case "get:newProfile":return "$serviceDir/newProfileGet.php";
     }
     return false;
   }

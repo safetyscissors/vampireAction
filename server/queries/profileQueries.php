@@ -40,4 +40,12 @@
         }
         return $stmt;
     }
+
+    function getUnrated($DB, $profileId){
+       $stmt = $DB->prepare("SELECT profileId FROM zombieProfile WHERE profileId NOT IN(SELECT targetId FROM zombieAction WHERE sourceId = ?) LIMIT 20");
+        if(!$stmt->bind_param('i', $profileId)){
+            return errorHandler("getUnrated failed to bind parameter", 503);
+        }
+        return $stmt;
+    }
 ?>
