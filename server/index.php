@@ -52,44 +52,26 @@
     returns string || false
   */
   function getRoute($path){
+    var_dump($path);
     $serviceDir = "services";
     $path=strToLower($path);
     switch($path){
-      case "get:":
-      case "get:index.php": return "$serviceDir/main.php";
       case "get:healthcheck": return "$serviceDir/healthCheck.php";
-      
-      case "post:user":       return "$serviceDir/userCreate.php";
-      case "get:user":        return "$serviceDir/userGet.php";
-      case "get:userlist":    return "$serviceDir/userlistGet.php";
-      case "put:user":        return "$serviceDir/userUpdate.php";
-      case "delete:user":     return "$serviceDir/userDelete.php";
 
-      case "get:auth":        return "$serviceDir/authCheckResponse.php";
-      case "post:authreset":  return "$serviceDir/authResetPassword.php"; //auth not needed
-      case "post:auth":       return "$serviceDir/authLogin.php"; //auth not needed
-      case "put:auth":        return "$serviceDir/authNewPassword.php";
-      case "delete:auth":     return "$serviceDir/authLogout.php";
+      case "get:auth":      return "$serviceDir/authCheck.php";
+      case "post:auth":     return "$serviceDir/authLogin.php";
 
-      case "get:growerclublist": return "$serviceDir/growerClubList.php";
-      case "get:growerclub":  return "$serviceDir/growerClubGet.php";
-      case "get:growerlist":  return "$serviceDir/growerList.php";
-      case "get:grower":      return "$serviceDir/growerGet.php";
-      case "post:grower":     return "$serviceDir/growerCreate.php";
-      case "delete:grower":   return "$serviceDir/growerDelete.php";
-      case "put:grower":      return "$serviceDir/growerUpdate.php";
+      case "get:profile":   return "$serviceDir/profileGet.php";
+      case "post:profile":  return "$serviceDir/profileCreate.php";
+      case "put:profile":   return "$serviceDir/profileUpdate.php";
 
-      case "get:productlist": return "$serviceDir/productList.php";
-      case "get:product":     return "$serviceDir/productGet.php";
-      case "post:product":    return "$serviceDir/productCreate.php";
-      case "put:product":     return "$serviceDir/productUpdate.php";
-      case "delete:product":  return "$serviceDir/productDelete.php";
+      case "post:image":    return "$serviceDir/imageAdd.php";
 
-      case "get:fieldlist":   return "$serviceDir/fieldListByProduct.php";
-      case "get:field":       return "$serviceDir/fieldGet.php";
-      case "post:field":      return "$serviceDir/fieldCreate.php";
-      case "put:field":       return "$serviceDir/fieldUpdate.php";
-      case "delete:field":    return "$serviceDir/fieldDelete.php";
+      case "post:action":   return "$serviceDir/actionCreate.php";
+
+      case "get:matchList": return "$serviceDir/matchList.php";
+
+      case "get:newProfile":return "$serviceDir/newProfileGet.php";
     }
     return false;
   }
@@ -102,6 +84,8 @@
     $uri=explode("/",$_SERVER['REQUEST_URI']);
 
     //get rid of extra directory depth
+    array_shift($uri);
+    array_shift($uri);
     array_shift($uri);
     array_shift($uri);
     array_shift($uri);
