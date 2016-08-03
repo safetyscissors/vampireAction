@@ -52,7 +52,6 @@
     returns string || false
   */
   function getRoute($path){
-    var_dump($path);
     $serviceDir = "services";
     $path=strToLower($path);
     switch($path){
